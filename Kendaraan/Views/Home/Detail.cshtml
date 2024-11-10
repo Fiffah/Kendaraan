@@ -1,0 +1,40 @@
+@model Kendaraan.Models.VehicleModel
+
+<link rel="stylesheet" href="~/Styles/style.css">
+
+<div class="detail-container">
+    <h2>Detail Kendaraan</h2>
+    <div class="detail-item">
+        <span class="label">Nomor Registrasi:</span>
+        <span class="value">@Model.NomorRegistrasiKendaraan</span>
+    </div>
+    <div class="detail-item">
+        <span class="label">Nama Pemilik:</span>
+        <span class="value">@Model.NamaPemilik</span>
+    </div>
+    <div class="detail-item">
+        <span class="label">Alamat:</span>
+        <span class="value">@Model.Alamat</span>
+    </div>
+    <div class="detail-item">
+        <span class="label">Merk Kendaraan:</span>
+        <span class="value">@Model.MerkKendaraan</span>
+    </div>
+    <div class="detail-item">
+        <span class="label">Tahun Pembuatan:</span>
+        <span class="value">@Model.TahunPembuatan</span>
+    </div>
+    <div class="detail-item">
+        <span class="label">Kapasitas Silinder:</span>
+        <span class="value">@Model.KapasitasSilinder cc</span>
+    </div>
+    <div class="detail-item">
+        <span class="label">Warna Kendaraan:</span>
+        <span class="value">@Model.WarnaKendaraan</span>
+    </div>
+    <div class="detail-item">
+        <span class="label">Bahan Bakar:</span>
+        <span class="value">@Model.BahanBakar</span>
+    </div>
+    <a class="back-link" href="/Home/Index">Kembali</a>
+</div>

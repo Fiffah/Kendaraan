@@ -1,0 +1,96 @@
+﻿@model List<Kendaraan.Models.VehicleModel>
+@{
+    ViewBag.Title = "Data Kendaraan";
+}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Data Kendaraan</title>
+    <link rel="stylesheet" href="/Styles/style.css">
+</head>
+
+<body>
+    <h2>Form Input Data Kendaraan</h2>
+    <form id="vehicleForm" method="post" action="/Home/AddVehicle">
+        <label>Nomor Registrasi Kendaraan:</label>
+        <input type="text" name="NomorRegistrasiKendaraan" required /><br>
+
+        <label>Nama Pemilik:</label>
+        <input type="text" name="NamaPemilik" required /><br>
+
+        <label>Alamat:</label>
+        <textarea name="Alamat"></textarea><br>
+
+        <label>Merk Kendaraan:</label>
+        <input type="text" name="MerkKendaraan"><br>
+
+        <label>Tahun Pembuatan:</label>
+        <input type="number" name="TahunPembuatan" maxlength="4"><br>
+
+        <label>Kapasitas Silinder:</label>
+        <input type="number" name="KapasitasSilinder"><br>
+
+        <label>Warna Kendaraan:</label>
+        <select name="WarnaKendaraan">
+            <option value="">Pilih Warna</option>
+            <option value="Merah">Merah</option>
+            <option value="Hitam">Hitam</option>
+            <option value="Biru">Biru</option>
+            <option value="Abu-Abu">Abu-Abu</option>
+        </select><br>
+
+        <label>Bahan Bakar:</label>
+        <select name="BahanBakar">
+            <option value="">Pilih Bahan Bakar</option>
+            <option value="Bensin">Bensin</option>
+            <option value="Solar">Solar</option>
+            <option value="Listrik">Listrik</option>
+        </select><br>
+
+        <button type="submit">Tambah Data</button>
+    </form>
+
+
+    <h2>Data Kendaraan Terdaftar</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>No. Registrasi</th>
+                <th>Nama Pemilik</th>
+                <th>Merk</th>
+                <th>Tahun</th>
+                <th>Silinder</th>
+                <th>Warna</th>
+                <th>Bahan Bakar</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var vehicle in Model)
+            {
+                <tr>
+                    <td>@vehicle.NomorRegistrasiKendaraan</td>
+                    <td>@vehicle.NamaPemilik</td>
+                    <td>@vehicle.MerkKendaraan</td>
+                    <td>@vehicle.TahunPembuatan</td>
+                    <td>@vehicle.KapasitasSilinder</td>
+                    <td>@vehicle.WarnaKendaraan</td>
+                    <td>@vehicle.BahanBakar</td>
+                    <td>
+                        <a href="/Home/Detail?id=@vehicle.NomorRegistrasiKendaraan">Detail</a> |
+                        <a href="/Home/Edit?id=@vehicle.NomorRegistrasiKendaraan">Edit</a> |
+                        <a href="/Home/Delete?id=@vehicle.NomorRegistrasiKendaraan"
+                            onclick="return confirm('Apakah Anda yakin ingin menghapus?')">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+
+    <script src="/Scripts/app.js"></script>
+</body>
+
+</html>
